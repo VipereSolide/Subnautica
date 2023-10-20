@@ -4,10 +4,9 @@ using BepInEx;
 
 namespace VipereSolide.Subnautica.MessingAroundMod
 {
-    using Items;
-    using Items.Modules;
     using Items.Modules.SeamothModules;
-    using VipereSolide.Subnautica.MessingAroundMod.Items.Modules.Prawn;
+    using Items.Alternate_Crafts;
+    using Items.Modules.Prawn;
 
     [BepInPlugin(MyGuid, PluginName, VersionString)]
     public class MessingAroundModPlugin : BaseUnityPlugin
@@ -27,6 +26,7 @@ namespace VipereSolide.Subnautica.MessingAroundMod
 
             SeamothModulesManager.RegisterModules();
             ExosuitModulesManager.RegisterModules();
+            ManageAlternateCrafts.Register();
         }
     }
 }

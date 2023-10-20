@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\Alternate Crafts\ManageAlternateCrafts.cs" />
     <Compile Include="Items\Modules\Prawn\ExosuitDrillArmDamageModules.cs" />
     <Compile Include="Items\Modules\Prawn\ExosuitModulesManager.cs" />
     <Compile Include="Items\Modules\ScannerRoom\MapRoomFunctionalityPatch.cs" />
