@@ -7,16 +7,16 @@ namespace VS.Subnautica.QuestSystem.Behaviour
     public static class QuestHookHandler
     {
         /// <summary>
-        /// GameObject itemGameObject, TechType type, int amount, bool noMessage, bool spawnIfCant
+        /// Called when any item enters player's inventory.
         /// </summary>
         /// <remarks>
-        /// Called when any item is being crafted.
         /// </remarks>
-        public static Action<GameObject, TechType, int, bool, bool> onItemAdded;
+        public static Action<InventoryItem> onItemAdded;
+        private static void Log(string msg) => QuestSystemPlugin.Log.LogInfo($"[QuestHookHandler]: {msg}");
 
-        public static void OnItemAdded(GameObject itemGameObject, TechType type, int amount, bool noMessage, bool spawnIfCant)
+        public static void OnItemAdded(InventoryItem item)
         {
-            onItemAdded?.Invoke(itemGameObject, type, amount, noMessage, spawnIfCant);
+            onItemAdded?.Invoke(item);
         }
     }
 }

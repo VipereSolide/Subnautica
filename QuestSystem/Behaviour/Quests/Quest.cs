@@ -7,8 +7,11 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
         public string name;
         public string description;
 
-        protected Action onQuestComplete;
-        protected Action onQuestFailed;
+        public bool isFinished;
+
+        public Action onQuestComplete;
+        public Action onQuestFailed;
+        public Action onQuestUpdate;
 
         #region Constructors
 
@@ -45,12 +48,19 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
 
         public virtual void OnCompleteQuest()
         {
+            isFinished = true;
             onQuestComplete?.Invoke();
         }
 
         public virtual void OnFailQuest()
         {
+            isFinished = true;
             onQuestFailed?.Invoke();
+        }
+
+        public virtual void OnQuestUpdate()
+        {
+            onQuestUpdate?.Invoke();
         }
 
         public virtual void CompleteQuest()

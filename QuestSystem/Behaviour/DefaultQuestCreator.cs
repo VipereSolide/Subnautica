@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 using VS.Subnautica.QuestSystem.Behaviour.Quests;
 
@@ -8,20 +9,36 @@ namespace VS.Subnautica.QuestSystem.Behaviour
     {
         public static void RegisterAllDefaultQuests()
         {
-            // Resource Gathering Quests.
-            QuestGatherResources gatherScrapMetal = Quest
+            // Resource Quests.
+            QuestGatherResources
                 .Create("Scavenger", QuestRegistery.GetGatherResourcesQuestDescription(TechType.ScrapMetal, 4))
-                .AsGatherResourcesQuest()
                 .WithMaxItemCount(4)
                 .WithItemType(TechType.ScrapMetal)
-                .WithOnQuestComplete(ScavengerOnComplete)
-                .WithOnQuestFailed(ScavengerOnFailed)
-                .WithOnItemAddedHook(ScavengerOnItemAdded)
+                .Register();
+
+            QuestGatherResources
+                .Create("Titanium Madman", QuestRegistery.GetGatherResourcesQuestDescription(TechType.Titanium, 8))
+                .WithMaxItemCount(8)
+                .WithItemType(TechType.Titanium)
+                .Register();
+
+            QuestGatherResources
+                .Create("Gold Addict", QuestRegistery.GetGatherResourcesQuestDescription(TechType.Gold, 2))
+                .WithMaxItemCount(2)
+                .WithItemType(TechType.Gold)
+                .Register();
+
+            QuestGatherResources
+                .Create("True Electrician", QuestRegistery.GetGatherResourcesQuestDescription(TechType.CopperWire, 4))
+                .WithMaxItemCount(4)
+                .WithItemType(TechType.CopperWire)
+                .Register();
+
+            QuestGatherResources
+                .Create("Copper Madman", QuestRegistery.GetGatherResourcesQuestDescription(TechType.Copper, 8))
+                .WithMaxItemCount(8)
+                .WithItemType(TechType.Copper)
                 .Register();
         }
-
-        public static void ScavengerOnComplete() { }
-        public static void ScavengerOnFailed() { }
-        public static void ScavengerOnItemAdded(GameObject itemGameObject, TechType type, int amount, bool noMessage, bool spawnIfCant) { }
     }
 }

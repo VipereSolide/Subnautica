@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace VS.Subnautica.QuestSystem.Behaviour.Quests
 {
-    public abstract class QuestGatherResources : Quest
+    public class QuestGatherResources : Quest
     {
         public int maxItemCount;
         protected int currentItemCount;
@@ -13,19 +13,21 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
 
         public TechType itemType;
 
-        protected virtual void HandleItemAdded(GameObject itemGameObject, TechType type, int amount, bool noMessage, bool spawnIfCant)
+        private static void Log(string msg) => QuestSystemPlugin.Log.LogInfo($"[QuestGatherResources]: {msg}");
+
+        protected virtual void HandleItemAdded(InventoryItem item)
         {
-            if (itemType == TechType.None)
-            {
-                return;
-            }
+            if (item.techType != itemType) return;
 
             currentItemCount++;
+            Log($"Increasing current count from {currentItemCount - 1} to {currentItemCount} (on {maxItemCount}).");
             if (currentItemCount >= maxItemCount)
             {
+                Log($"Completing quest...");
                 CompleteQuest();
-                currentItemCount = 0;
             }
+
+            OnQuestUpdate();
         }
 
         #region Constructors
@@ -39,7 +41,6 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
         public virtual QuestGatherResources WithItemType(TechType itemType)
         {
             this.itemType = itemType;
-            QuestHookHandler.onItemAdded += HandleItemAdded;
 
             return this;
         }
@@ -56,7 +57,7 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
             return this;
         }
 
-        public virtual QuestGatherResources WithOnItemAddedHook(Action<GameObject, TechType, int, bool, bool> onItemAdded)
+        public virtual QuestGatherResources WithOnItemAddedHook(Action<InventoryItem> onItemAdded)
         {
             QuestHookHandler.onItemAdded += onItemAdded;
             return this;
@@ -64,8 +65,21 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
 
         public new QuestGatherResources Register()
         {
+            QuestHookHandler.onItemAdded += HandleItemAdded;
             QuestRegistery.RegisterQuest(this);
+
             return this;
+        }
+
+        public static new QuestGatherResources Create(string name, string description)
+        {
+            QuestGatherResources quest = new QuestGatherResources()
+            {
+                name = name,
+                description = description
+            };
+
+            return quest;
         }
 
         #endregion

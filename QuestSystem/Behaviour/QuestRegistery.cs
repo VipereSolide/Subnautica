@@ -6,7 +6,7 @@ namespace VS.Subnautica.QuestSystem.Behaviour
     public static class QuestRegistery
     {
         public static string GetNameForTechType(TechType item) =>
-            Language.main.CheckTechType(item);
+            item.AsString();
 
         public static string GetGatherResourcesQuestName(TechType item) =>
             $"Gather {GetNameForTechType(item)}.";
@@ -15,13 +15,13 @@ namespace VS.Subnautica.QuestSystem.Behaviour
             GetGatherResourcesQuestName(quest.itemType);
 
         public static string GetGatherResourcesQuestDescription(TechType item, int amount) =>
-            $"Gather {amount} {GetNameForTechType(item)}.";
+            $"Collect {amount} {GetNameForTechType(item)}.";
 
         public static string GetGatherResourcesQuestDescription(QuestGatherResources quest) =>
             GetGatherResourcesQuestDescription(quest.itemType, quest.maxItemCount);
 
         private static readonly List<Quest> registeredQuests = new List<Quest>();
-        
+
         public static Quest[] RegisteredQuests =>
             registeredQuests.ToArray();
 

@@ -7,6 +7,7 @@ namespace VS.Subnautica.QuestSystem
 {
     using Behaviour.Quests;
     using VS.Subnautica.QuestSystem.Behaviour;
+    using VS.Subnautica.QuestSystem.Patches.Environment_Patches;
 
     [BepInPlugin(MyGuid, PluginName, VersionString)]
     public class QuestSystemPlugin : BaseUnityPlugin
@@ -23,8 +24,15 @@ namespace VS.Subnautica.QuestSystem
             Harmony.PatchAll();
             Logger.LogInfo(PluginName + " " + VersionString + " " + "loaded.");
             Log = Logger;
+        }
 
-            DefaultQuestCreator.RegisterAllDefaultQuests();
+        private void Start()
+        {
+            DayNightCyclePatch.onAwake += () =>
+            {
+                DefaultQuestCreator.RegisterAllDefaultQuests();
+                DailyQuestHandler.Init();
+            };
         }
     }
 }
