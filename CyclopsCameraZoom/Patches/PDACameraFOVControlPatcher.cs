@@ -40,7 +40,7 @@ namespace VS.Subnautica.CyclopsCameraZoom.Patches
             // update code to execute only if the player is not inside the
             // cameras of the cyclops (since the cameras only activate when
             // a player is inside them).
-            return !CyclopsRegistery.GetCyclopBySubRoot(currentSubRoot).externalCams.GetActive();
+            return !CyclopsRegistery.GetCyclopsBySubRoot(currentSubRoot).externalCams.GetActive();
         }
     }
 }

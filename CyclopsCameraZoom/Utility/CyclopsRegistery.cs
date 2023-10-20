@@ -9,7 +9,7 @@ namespace VS.Subnautica.CyclopsCameraZoom.Utility
         private static readonly List<CyclopsComponentManager> CYCLOPS = new List<CyclopsComponentManager>();
         public static CyclopsComponentManager[] GetAllCyclops() => CYCLOPS.ToArray();
 
-        public static CyclopsComponentManager GetCyclopBySubRoot(SubRoot subRoot)
+        public static CyclopsComponentManager GetCyclopsBySubRoot(SubRoot subRoot)
         {
             foreach (var cyclop in CYCLOPS)
             {
@@ -22,10 +22,10 @@ namespace VS.Subnautica.CyclopsCameraZoom.Utility
 
         public static bool IsRegistered(SubRoot subRoot)
         {
-            return GetCyclopBySubRoot(subRoot) != null;
+            return GetCyclopsBySubRoot(subRoot) != null;
         }
 
-        public static bool RegisterCyclop(SubRoot subRoot)
+        public static bool RegisterCyclops(SubRoot subRoot)
         {
             if (IsRegistered(subRoot))
             {

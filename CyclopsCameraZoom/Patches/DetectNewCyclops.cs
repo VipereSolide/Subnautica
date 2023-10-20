@@ -15,7 +15,7 @@ namespace VS.Subnautica.CyclopsCameraZoom.Patches
             SubRoot subRoot = __instance.gameObject.FindAncestor<SubRoot>();
             if (subRoot == null) return;
 
-            CyclopsRegistery.RegisterCyclop(subRoot);
+            CyclopsRegistery.RegisterCyclops(subRoot);
         }
     }
 }
