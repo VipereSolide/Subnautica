@@ -14,7 +14,7 @@ namespace VS.Subnautica.CyclopsCameraZoom.Patches
         [HarmonyPostfix]
         public static void HandleInput_Postfix(CyclopsExternalCams __instance)
         {
-            if (GameInput.GetButtonDown(GameInput.Button.Jump))
+            if (GameInput.GetKeyDown(CyclopsCameraZoomPlugin.config.toggle))
             {
                 SNCameraRoot.main.SetFov(SNCameraRoot.main.CurrentFieldOfView == ZOOMED_FOV ? MiscSettings.fieldOfView : ZOOMED_FOV);
             }

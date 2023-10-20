@@ -3,6 +3,7 @@
 using BepInEx.Logging;
 using BepInEx;
 
+using Nautilus.Handlers;
 using HarmonyLib;
 
 namespace VS.Subnautica.CyclopsCameraZoom
@@ -10,6 +11,9 @@ namespace VS.Subnautica.CyclopsCameraZoom
     [BepInPlugin(MyGuid, PluginName, VersionString)]
     public class CyclopsCameraZoomPlugin : BaseUnityPlugin
     {
+        // https://github.com/RamuneNeptune/SubnauticaMods.Nautilus/blob/main/SubnauticaMods/PrawnSuitLightSwitch/Config.cs
+        public static Config config { get; } = OptionsPanelHandler.RegisterModOptions<Config>();
+
         private const string MyGuid = "com.vs.subnautica.cyclopscamerazoom";
         private const string PluginName = "Cyclops Camera Zoom";
         private const string VersionString = "1.0.0";

@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="CyclopsCameraZoomPlugin.cs" />
     <Compile Include="Patches\CyclopsExternalCamsPatcher.cs" />
     <Compile Include="Patches\DetectNewCyclops.cs" />
