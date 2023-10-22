@@ -67,5 +67,10 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
         {
             OnCompleteQuest();
         }
+
+        public virtual void ResetQuest()
+        {
+            isFinished = false;
+        }
     }
 }

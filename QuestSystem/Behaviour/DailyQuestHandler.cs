@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Nautilus.Utility;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using VS.Subnautica.QuestSystem.Behaviour.Quests;
+using VS.Subnautica.QuestSystem.Patches.Player_Patches;
 
 namespace VS.Subnautica.QuestSystem.Behaviour
 {
@@ -16,13 +18,15 @@ namespace VS.Subnautica.QuestSystem.Behaviour
 
         public static void Init()
         {
+            PlayerStartPatcher.onStart += CreateUI;
+
             DayNightCycle.main.dayNightCycleChangedEvent.AddHandler(DayNightCycle.main.gameObject, (bool isDay) =>
             {
                 if (isDay) UpdateDailyQuests();
             });
         }
 
-        public static void UpdateDailyQuests()
+        private static void CreateUI()
         {
             if (QuestUI == null)
             {
@@ -30,6 +34,11 @@ namespace VS.Subnautica.QuestSystem.Behaviour
                 QuestUI.transform.SetParent(Player.main.transform);
                 QuestUI.questText.text = "No Quest...";
             }
+        }
+
+        public static void UpdateDailyQuests()
+        {
+
 
             Log("Updating quests...");
 
@@ -40,13 +49,25 @@ namespace VS.Subnautica.QuestSystem.Behaviour
                 AddDailyQuests();
             }
 
+            // Whether there is still a quest running or not.
+            bool areQuestsFinished = true;
+
             for (int i = 0; i < currentQuests.Count; i++)
             {
                 if (currentQuests[i].isFinished)
                 {
-                    Log("Detected finished quest. Adding a new one instead.");
-                    currentQuests[i] = GetRandomQuest();
+                    // Log("Detected finished quest. Adding a new one instead.");
+                    // currentQuests[i] = GetRandomQuest();
+
+                    continue;
                 }
+
+                areQuestsFinished = false;
+            }
+
+            if (areQuestsFinished)
+            {
+                currentQuests.Clear();
             }
 
             UpdateQuestText();
@@ -68,7 +89,7 @@ namespace VS.Subnautica.QuestSystem.Behaviour
         public static Quest GetRandomQuest()
         {
             Quest quest = QuestRegistery.RegisteredQuests[Random.Range(0, QuestRegistery.RegisteredQuests.Length)];
-            Debug.Log(((QuestGatherResources)quest).CurrentItemCount);
+            quest.ResetQuest();
             return quest;
         }
 

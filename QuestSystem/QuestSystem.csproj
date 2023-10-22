@@ -88,6 +88,7 @@
     <Compile Include="Behaviour\Quests\QuestGatherResources.cs" />
     <Compile Include="Patches\Environment Patches\DayNightCyclePatch.cs" />
     <Compile Include="Patches\Inventory Patches\AddToInventoryPatch.cs" />
+    <Compile Include="Patches\Player Patches\PlayerStartPatcher.cs" />
     <Compile Include="QuestSystemPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

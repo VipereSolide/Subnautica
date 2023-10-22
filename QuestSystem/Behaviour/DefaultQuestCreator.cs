@@ -23,9 +23,21 @@ namespace VS.Subnautica.QuestSystem.Behaviour
                 .Register();
 
             QuestGatherResources
-                .Create("Gold Addict", QuestRegistery.GetGatherResourcesQuestDescription(TechType.Gold, 2))
-                .WithMaxItemCount(2)
+                .Create("My Precious", QuestRegistery.GetGatherResourcesQuestDescription(TechType.Gold, 4))
+                .WithMaxItemCount(4)
                 .WithItemType(TechType.Gold)
+                .Register();
+
+            QuestGatherResources
+                .Create("Shiny Titanium?", QuestRegistery.GetGatherResourcesQuestDescription(TechType.Silver, 4))
+                .WithMaxItemCount(4)
+                .WithItemType(TechType.Silver)
+                .Register();
+
+            QuestGatherResources
+                .Create("Heavy Workload", QuestRegistery.GetGatherResourcesQuestDescription(TechType.Lead, 3))
+                .WithMaxItemCount(3)
+                .WithItemType(TechType.Lead)
                 .Register();
 
             QuestGatherResources

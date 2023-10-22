@@ -18,9 +18,13 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
         protected virtual void HandleItemAdded(InventoryItem item)
         {
             if (item.techType != itemType) return;
+            if (isFinished) return;
 
             currentItemCount++;
             Log($"Increasing current count from {currentItemCount - 1} to {currentItemCount} (on {maxItemCount}).");
+
+            Inventory.main.DestroyItem(itemType);
+
             if (currentItemCount >= maxItemCount)
             {
                 Log($"Completing quest...");
@@ -28,6 +32,13 @@ namespace VS.Subnautica.QuestSystem.Behaviour.Quests
             }
 
             OnQuestUpdate();
+        }
+
+        public override void ResetQuest()
+        {
+            base.ResetQuest();
+
+            currentItemCount = 0;
         }
 
         #region Constructors
