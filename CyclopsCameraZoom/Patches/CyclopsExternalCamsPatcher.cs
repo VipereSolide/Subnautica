@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-using HarmonyLib;
+﻿using HarmonyLib;
 
 namespace VS.Subnautica.CyclopsCameraZoom.Patches
 {
@@ -16,7 +14,10 @@ namespace VS.Subnautica.CyclopsCameraZoom.Patches
         {
             if (GameInput.GetKeyDown(CyclopsCameraZoomPlugin.config.toggle))
             {
-                SNCameraRoot.main.SetFov(SNCameraRoot.main.CurrentFieldOfView == ZOOMED_FOV ? MiscSettings.fieldOfView : ZOOMED_FOV);
+                bool isZoomed = SNCameraRoot.main.CurrentFieldOfView == ZOOMED_FOV;
+                float fov = isZoomed ? MiscSettings.fieldOfView : ZOOMED_FOV;
+
+                SNCameraRoot.main.SetFov(fov);
             }
         }
 
