@@ -9,6 +9,8 @@ namespace VS.Subnautica.CyclopsCameraZoom.Utility
         private static readonly List<CyclopsComponentManager> CYCLOPS = new List<CyclopsComponentManager>();
         public static CyclopsComponentManager[] GetAllCyclops() => CYCLOPS.ToArray();
 
+        private static readonly List<SubRoot> subRootRegistery = new List<SubRoot>();
+
         public static CyclopsComponentManager GetCyclopsBySubRoot(SubRoot subRoot)
         {
             foreach (var cyclop in CYCLOPS)
@@ -16,13 +18,12 @@ namespace VS.Subnautica.CyclopsCameraZoom.Utility
                 if (cyclop.subroot == subRoot) return cyclop;
             }
 
-            Debug.LogError($"[CyclopsRegistery]: Could not find any registered cyclop with the subRoot \"{subRoot.transform.name}\"!");
             return null;
         }
 
         public static bool IsRegistered(SubRoot subRoot)
         {
-            return GetCyclopsBySubRoot(subRoot) != null;
+            return subRootRegistery.Contains(subRoot);
         }
 
         public static bool RegisterCyclops(SubRoot subRoot)
@@ -31,6 +32,8 @@ namespace VS.Subnautica.CyclopsCameraZoom.Utility
             {
                 return false;
             }
+
+            subRootRegistery.Add(subRoot);
 
             CyclopsComponentManager componentManager = CyclopsComponentManager
                 .FromSubRoot(subRoot)
