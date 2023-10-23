@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-using BepInEx.Logging;
+﻿using BepInEx.Logging;
 using BepInEx;
 
 using Nautilus.Handlers;
