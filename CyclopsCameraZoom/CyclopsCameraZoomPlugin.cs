@@ -23,8 +23,8 @@ namespace VS.Subnautica.CyclopsCameraZoom
 
         private void SendLoadedPluginMessage()
         {
-            Logger.LogInfo("Successfully loaded {PluginName} (Version {VersionString})!");
-            Logger.LogInfo("> Thank you very much for using my mod! - Vip");
+            Logger.LogInfo($"Successfully loaded {PluginName} (Version {VersionString})!");
+            Logger.LogInfo($"> Thank you very much for using my mod! - Vip");
         }
 
         private void Awake()
