@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclopsHUDAlwaysOn", "Cyclo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensive", "AssetBundleController\Extensive.csproj", "{32D2A42D-2D32-451D-B3D4-89A0E552FE85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraHardcore", "Ultra Hardcore\UltraHardcore.csproj", "{AEF12632-FD13-4617-9924-3D5A4B3F6795}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{32D2A42D-2D32-451D-B3D4-89A0E552FE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32D2A42D-2D32-451D-B3D4-89A0E552FE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32D2A42D-2D32-451D-B3D4-89A0E552FE85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF12632-FD13-4617-9924-3D5A4B3F6795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF12632-FD13-4617-9924-3D5A4B3F6795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF12632-FD13-4617-9924-3D5A4B3F6795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF12632-FD13-4617-9924-3D5A4B3F6795}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,15 +8,15 @@ namespace com.rose.hc
     public class UltraHardcore : BaseUnityPlugin
     {
         private const string MyGuid = "com.rose.hc";
-        private const string PluginName = "Long Knife Reach";
-        private const string VersionString = "1.0.0";
+        private const string PluginName = "Ultra Hardcore";
+        private const string VersionString = "2.0_0.1.00";
 
         private static readonly Harmony Harmony = new Harmony(MyGuid);
         public static ManualLogSource Log;
 
         private void SendLoadedPluginMessage()
         {
-            Logger.LogInfo("Loaded {PluginName} (Version {VersionString}).");
+            Logger.LogInfo($"Loaded {PluginName} {VersionString}");
         }
 
         private void Awake()
