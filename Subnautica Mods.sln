@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genes", "Genes\Genes.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclopsHUDAlwaysOn", "CyclopsHUDAlwaysOn\CyclopsHUDAlwaysOn.csproj", "{46AAAC08-1867-4570-8251-A17DC9BD4B49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensive", "AssetBundleController\Extensive.csproj", "{32D2A42D-2D32-451D-B3D4-89A0E552FE85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{46AAAC08-1867-4570-8251-A17DC9BD4B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46AAAC08-1867-4570-8251-A17DC9BD4B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46AAAC08-1867-4570-8251-A17DC9BD4B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D2A42D-2D32-451D-B3D4-89A0E552FE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D2A42D-2D32-451D-B3D4-89A0E552FE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D2A42D-2D32-451D-B3D4-89A0E552FE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D2A42D-2D32-451D-B3D4-89A0E552FE85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
